@@ -56,6 +56,10 @@ jobs:
               --data "{ \"definition\": ${DEF} }")
 
               echo $RESPONSE
+              ERR_CODE=$(echo $RESPONSE | jq '.code')
+              if [ ! -z "${ERR_CODE}" ]; then
+                exit 1
+              fi
             else
               echo "Not a project configuration file: ${file}"
             fi
