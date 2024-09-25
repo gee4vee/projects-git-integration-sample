@@ -31,10 +31,12 @@ jobs:
 
           BASE_URL=${{ vars.PROJECTS_API_BASE_URL }}
 
-          cat $GITHUB_EVENT_PATH
+          echo ${{ github.event.before }}
+          echo ${{ github.event.after }}
 
           # get files changed in the PR
-          changed_files=$(git diff --name-only HEAD^ HEAD)
+          changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
+          echo "Changed files: $changed_files"
 
           for file in $changed_files; do
 
