@@ -31,6 +31,8 @@ jobs:
 
           BASE_URL=${{ vars.PROJECTS_API_BASE_URL }}
 
+          cat $GITHUB_EVENT_PATH
+
           # get files changed in the PR
           changed_files=$(git diff --name-only HEAD^ HEAD)
 
