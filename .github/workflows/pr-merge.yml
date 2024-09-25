@@ -40,7 +40,7 @@ jobs:
           BASE_URL=${{ vars.PROJECTS_API_BASE_URL }}
 
           # get files changed in the PR
-          changed_files=$(git diff --name-only ${{ github.head_ref }} ${{ github.base_ref }})
+          changed_files=$(git diff --name-only ${{ github.head.sha }} ${{ github.base.sha }})
           echo "Changed files: $changed_files"
 
           for file in $changed_files; do
