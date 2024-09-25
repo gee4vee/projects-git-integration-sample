@@ -59,6 +59,7 @@ jobs:
 
               echo $RESPONSE
               ERR_CODE=$(echo $RESPONSE | jq '.code')
+              echo $ERR_CODE
               if [ ! -z "${ERR_CODE}" ]; then
                 exit 1
               fi
