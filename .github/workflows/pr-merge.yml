@@ -31,8 +31,7 @@ jobs:
 
           BASE_URL=${{ vars.PROJECTS_API_BASE_URL }}
 
-          echo ${{ github.event.before }}
-          echo ${{ github.event.after }}
+          echo ${{ github.event }}
 
           # get files changed in the PR
           changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})
