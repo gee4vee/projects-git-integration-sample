@@ -34,9 +34,8 @@ jobs:
           echo "Changed files: $changed_files"
 
           for file in $changed_files; do
-            echo "Checking file: ${file}"
             # find config files that were changed
-            if [ "${file}" = ${{ vars.CONFIG_FOLDER_PATH }}/* ]; then
+            if [[ "${file}" == ${{ vars.CONFIG_FOLDER_PATH }}/* ]]; then
               echo "Config file updated: ${file}"
                             
               # extract data from config files
